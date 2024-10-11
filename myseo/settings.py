@@ -69,7 +69,7 @@ WSGI_APPLICATION = 'myseo.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': "nurse",
+        'NAME': "seo",
         'USER': "root",
         'PASSWORD': '12345',  
         'HOST': str(os.environ.get("MYSQL_HOST", "127.0.0.1")),
