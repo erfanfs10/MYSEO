@@ -1,5 +1,5 @@
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -11,10 +11,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure--h=p2k1fabe#d-2f5at$#h*ctab0+ewx5*ay=7ln^q(or@ji2g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = bool(int(os.environ.get("DEBUG", "1")))
 
 ALLOWED_HOSTS = ["*"]
 
+if DEBUG is False:
+    CSRF_TRUSTED_ORIGINS = ["https://mahdifarahmand.ir"]
 
 # Application definition
 
@@ -66,10 +68,21 @@ WSGI_APPLICATION = 'myseo.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': "nurse",
+        'USER': "root",
+        'PASSWORD': '12345',  
+        'HOST': str(os.environ.get("MYSQL_HOST", "127.0.0.1")),
+        'PORT': "3306"
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
