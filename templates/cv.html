@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+        }
+        header {
+            background-color: #4682b4;
+            padding: 10px 0;
+            text-align: center;
+            color: white;
+        }
+        nav a {
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        section {
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #4682b4;
+        }
+        .resume-section {
+            background-color: white;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .resume-image {
+            margin: 20px 0;
+            max-width: 150px;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .resume-image img {
+            width: 100%;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="{% url 'cv' %}">Resume</a>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'contact' %}">Contact</a>
+    </nav>
+</header>
+
+<section>
+    <h1>My Resume</h1>
+    <!-- Profile Image Section -->
+    <div class="resume-image">
+        <img src="{% static 'cv.jpg' %}" alt="mahdi farahmandsafa">
+    </div>
+    <div class="resume-section">
+        <h2>Experience</h2>
+        <p><strong>Software Developer</strong> 2021 - (Present)</p>
+        <ul>
+            <li>Backend Developer with python (Django, FastAPI)</li>
+            <li>Golang Developer</li>
+            <li>DevOps Engineer</li>
+        </ul>
+    </div>
+
+    <div class="resume-section">
+        <h2>Education</h2>
+        <p><strong>Associate's degree of ICT </strong>Shamsipour</p>
+        <p><strong>Bachelor's degree of IT </strong>Shamsipour</p>
+    </div>
+</section>
+
+</body>
+</html>
